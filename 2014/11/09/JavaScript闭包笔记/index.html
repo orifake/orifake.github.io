@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>JavaScript闭包笔记 | orifake&#39; Blog</title>
+  <meta name="description" content="Standing on Shoulders of Giants" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/component.css" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <meta name="generator" content="orifake' Blog">
+  <script src="http://static.duoshuo.com/embed.js"></script>
+  
+  
+  
+
+  
+
+</head>
+<body>
+<div class="container">
+    <div class="mp-pusher" id="mp-pusher">
+        <i id="scroll-up" class="fa fa-angle-up"></i>
+        <nav id="mp-menu" class="mp-menu">
+            <div class="mp-level">
+                <a data-pjax class="back-home" style="font-size: 20px" href="/"><h2 ><i class="fa fa-home"></i>
+                        Home</h2></a>
+                <ul class="first-level">
+                    <li>
+                        <a class="fa fa-archive" href="#"><i class="fa fa-angle-left">
+                            </i>&nbsp;&nbsp;Archive</a>
+                        <div class="mp-level page-list">
+                            <h2 ><i class="fa fa-archive"></i>
+                                Archive</h2>
+                            <a class="mp-back" href="#">back</a>
+                            <form id="search-form" action="">
+                                <input type="text" class="search search-archive" placeholder="Search.."/>
+                            </form>
+                            <ul>
+                                <div class="mp-scroll">
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/01/16/Octotree-Github-Browser-extensions/">安利下Octotree，好用的Github插件</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/07/21/firefox下css三角锯齿问题/">firefox下css三角锯齿问题</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2014/12/01/近日hexo无法deploy解决方案/">近日hexo无法deploy解决方案</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2014/11/09/JavaScript闭包笔记/">JavaScript闭包笔记</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2014/10/23/typeof和instanceof笔记/">typeof和instanceof笔记</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2014/10/19/hexo学习笔记/">hexo学习笔记</a>
+                                </li>
+                                
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="fa fa-copy" href="#"><i class="fa fa-angle-left">
+                            </i>&nbsp;&nbsp;Categories</a>
+
+                        <div class="mp-level page-list">
+                            <h2 ><i class="fa fa-copy"></i>
+                                Categories</h2>
+                            <a class="mp-back" href="#">back</a>
+                            <form id="search-form" action="">
+                                <input type="text" class="search search-category" placeholder="Search.."/>
+                            </form>
+                            <ul>
+                                <div class="mp-scroll">
+                                
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="fa fa-tags" href="#"><i class="fa fa-angle-left">
+                            </i>&nbsp;&nbsp;Tags</a>
+                        <div class="mp-level page-list">
+                            <h2 ><i class="fa fa-tags"></i>
+                                Tags</h2>
+                            <a class="mp-back" href="#">back</a>
+                            <form id="search-form" action="">
+                                <input type="text" class="search search-tag" placeholder="Search.."/>
+                            </form>
+                            <ul>
+                                <div class="mp-scroll">
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/NPM-ES6/">&nbsp;&nbsp;&nbsp;NPM ES6</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/TOOL/">&nbsp;&nbsp;&nbsp;TOOL</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/css/">&nbsp;&nbsp;&nbsp;css</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/hexo/">&nbsp;&nbsp;&nbsp;hexo</a>
+                                    <small>2</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/javascript/">&nbsp;&nbsp;&nbsp;javascript</a>
+                                    <small>2</small>
+                                </li>
+                                
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <li class="mp-pjax"><a class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a></li>
+                    <li><a class="fa fa-github" href="#">&nbsp;&nbsp;&nbsp;Github</a></li>
+
+                </ul>
+
+            </div>
+        </nav>
+        <div id="pjax">
+            <div class="pjax-hidden" style="display: none">
+                
+                    <a  data-pjax href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
+                
+                    <a  data-pjax href="/2016/01/16/Octotree-Github-Browser-extensions/">安利下Octotree，好用的Github插件</a>
+                
+                    <a  data-pjax href="/2015/07/21/firefox下css三角锯齿问题/">firefox下css三角锯齿问题</a>
+                
+                    <a  data-pjax href="/2014/12/01/近日hexo无法deploy解决方案/">近日hexo无法deploy解决方案</a>
+                
+                    <a  data-pjax href="/2014/11/09/JavaScript闭包笔记/">JavaScript闭包笔记</a>
+                
+                    <a  data-pjax href="/2014/10/23/typeof和instanceof笔记/">typeof和instanceof笔记</a>
+                
+                    <a  data-pjax href="/2014/10/19/hexo学习笔记/">hexo学习笔记</a>
+                
+                
+                
+                    <a data-pjax href="/tags/NPM-ES6/">&nbsp;&nbsp;NPM ES6</a>
+                
+                    <a data-pjax href="/tags/TOOL/">&nbsp;&nbsp;TOOL</a>
+                
+                    <a data-pjax href="/tags/css/">&nbsp;&nbsp;css</a>
+                
+                    <a data-pjax href="/tags/hexo/">&nbsp;&nbsp;hexo</a>
+                
+                    <a data-pjax href="/tags/javascript/">&nbsp;&nbsp;javascript</a>
+                
+                <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
+            </div>
+            <nav class="nexus">
+                <li  style="border-left: 1px solid #c6d0da;">
+                    <a id="trigger" href="#"><i class="fa fa-bars"></i></a>
+                </li>
+                <li ><a id="nexus-back" data-pjax href="/">orifake&#39; Blog</a></li>
+                
+                <div id="nav-container">
+                    <div class="post-navbar" style="line-height: 63px;display:none">
+                        <li id="navbar-title"><a href="#">JavaScript闭包笔记</a></li>
+                        <li id="navbar-toc" style="border-left: none">
+                            <a style="padding-right: 15px">
+                                <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
+                            </a>
+                            <div class="hidden-box">
+                                <ul id="toc"></ul>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                
+            </nav>
+
+            <div class="scroller">
+            <div class="scroller-inner">
+
+
+<!-- -->
+<!--<body class="post-template">-->
+<!---->
+  
+
+<main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/javascript/' style='color:#D5D5D5'>javascript</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">JavaScript闭包笔记</h1>
+
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2014-11-09T05:57:07.000Z"
+                              itemprop="datePublished">2014-11-09</time>
+                    </div>
+    </span>
+
+        <section class="post-content">
+            <p>在学习JavaScript的路上依然走的很慢,看完了高级程序设计后对其中很多概念不甚理解.逛知乎时看到很多大牛的精彩回答，在这继续转载一篇关于闭包的文章，也希望自己能早些去帮助别人解惑。</p>
+<p>原文:<a href="http://www.zhihu.com/question/19554716/answer/12276503" target="_blank" rel="external">JavaScript 里的闭包是什么？应用场景有哪些？</a><br>@作者:<a href="http://www.zhihu.com/people/tlxue" target="_blank" rel="external">薛天禄</a><br><a id="more"></a></p>
+<hr>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var foo = ( function() &#123;</div><div class="line">    var secret = &apos;secret&apos;;</div><div class="line">    // “闭包”内的函数可以访问 secret 变量，而 secret 变量对于外部却是隐藏的</div><div class="line">    return &#123;</div><div class="line">        get_secret: function () &#123;</div><div class="line">            // 通过定义的接口来访问 secret</div><div class="line">            return secret;</div><div class="line">        &#125;,</div><div class="line">        new_secret: function ( new_secret ) &#123;</div><div class="line">            // 通过定义的接口来修改 secret</div><div class="line">            secret = new_secret;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125; () );</div><div class="line"></div><div class="line">foo.get_secret (); // 得到 &apos;secret&apos;</div><div class="line">foo.secret; // Type error，访问不能</div><div class="line">foo.new_secret (&apos;a new secret&apos;); // 通过函数接口，我们访问并修改了 secret 变量</div><div class="line">foo.get_secret (); // 得到 &apos;a new secret&apos;</div></pre></td></tr></table></figure></p>
+<p>引用 Douglas Crockford [1] :</p>
+<blockquote>
+<p>之所以可能通过这种方式在 JavaScript 种实现公有，私有，特权变量正是因为闭包，闭包是指在 JavaScript 中，内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。</p>
+</blockquote>
+<p>需要注意的一点时，内部函数访问的是被创建的内部变量本身，而不是它的拷贝。所以在闭包函数内加入 loop 时要格外注意。另外当然的是，闭包特性也可以用于创建私有函数或方法。</p>
+<hr>
+<p>关于为什么在 JavaScript 中闭包的应用都有关键词“return”，引用 JavaScript 秘密花园中的一段话：</p>
+<blockquote>
+<p>闭包是 JavaScript 一个非常重要的特性，这意味着当前作用域总是能够访问外部作用域中的变量。 因为 函数 是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数。</p>
+</blockquote>
+
+        </section>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
+            
+            <a data-pjax class="newer-posts" href="/2014/12/01/近日hexo无法deploy解决方案/">← Prev Post</a>
+            
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/2014/10/23/typeof和instanceof笔记/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
+        </section>
+
+
+    </article>
+</main>
+
+
+  
+<footer class="site-footer">
+    
+    <div class="inner">
+        <section class="copyright"><a href="/"></a> &copy; orifake' Blog 2014</section>
+        <section class="poweredby">Published with <a target="_blank" href="http://hexo.io/">Hexo   </a> and Theme by <a target="_blank" href="https://github.com/yuche/hexo-theme-kael">Kael</a></section>
+    </div>
+</footer>
+</div>
+</div><!-- /scroller -->
+
+</div><!-- /pusher -->
+</div><!-- /container -->
+</div>
+
+<!-- Easter eggs -->
+
+<div class="egg animated">
+    <a id="close-button" href="#">X</a>
+    <div class="block">
+        <div class="loading">
+            <span class="ball1"></span>
+            <span class="ball2"></span>
+        </div>
+    </div>
+</div>
+  
+<script src="//cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "/js/jquery.min.js";
+        document.body.appendChild(script);
+    }
+</script>
+<script type="text/javascript" src="/js/lib.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>

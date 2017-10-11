@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>NPM with ES6 | orifake&#39; Blog</title>
+  <meta name="description" content="Standing on Shoulders of Giants" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/component.css" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <meta name="generator" content="orifake' Blog">
+  <script src="http://static.duoshuo.com/embed.js"></script>
+  
+  
+  
+
+  
+
+</head>
+<body>
+<div class="container">
+    <div class="mp-pusher" id="mp-pusher">
+        <i id="scroll-up" class="fa fa-angle-up"></i>
+        <nav id="mp-menu" class="mp-menu">
+            <div class="mp-level">
+                <a data-pjax class="back-home" style="font-size: 20px" href="/"><h2 ><i class="fa fa-home"></i>
+                        Home</h2></a>
+                <ul class="first-level">
+                    <li>
+                        <a class="fa fa-archive" href="#"><i class="fa fa-angle-left">
+                            </i>&nbsp;&nbsp;Archive</a>
+                        <div class="mp-level page-list">
+                            <h2 ><i class="fa fa-archive"></i>
+                                Archive</h2>
+                            <a class="mp-back" href="#">back</a>
+                            <form id="search-form" action="">
+                                <input type="text" class="search search-archive" placeholder="Search.."/>
+                            </form>
+                            <ul>
+                                <div class="mp-scroll">
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/01/16/Octotree-Github-Browser-extensions/">安利下Octotree，好用的Github插件</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/07/21/firefox下css三角锯齿问题/">firefox下css三角锯齿问题</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2014/12/01/近日hexo无法deploy解决方案/">近日hexo无法deploy解决方案</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2014/11/09/JavaScript闭包笔记/">JavaScript闭包笔记</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2014/10/23/typeof和instanceof笔记/">typeof和instanceof笔记</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2014/10/19/hexo学习笔记/">hexo学习笔记</a>
+                                </li>
+                                
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="fa fa-copy" href="#"><i class="fa fa-angle-left">
+                            </i>&nbsp;&nbsp;Categories</a>
+
+                        <div class="mp-level page-list">
+                            <h2 ><i class="fa fa-copy"></i>
+                                Categories</h2>
+                            <a class="mp-back" href="#">back</a>
+                            <form id="search-form" action="">
+                                <input type="text" class="search search-category" placeholder="Search.."/>
+                            </form>
+                            <ul>
+                                <div class="mp-scroll">
+                                
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="fa fa-tags" href="#"><i class="fa fa-angle-left">
+                            </i>&nbsp;&nbsp;Tags</a>
+                        <div class="mp-level page-list">
+                            <h2 ><i class="fa fa-tags"></i>
+                                Tags</h2>
+                            <a class="mp-back" href="#">back</a>
+                            <form id="search-form" action="">
+                                <input type="text" class="search search-tag" placeholder="Search.."/>
+                            </form>
+                            <ul>
+                                <div class="mp-scroll">
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/NPM-ES6/">&nbsp;&nbsp;&nbsp;NPM ES6</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/TOOL/">&nbsp;&nbsp;&nbsp;TOOL</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/css/">&nbsp;&nbsp;&nbsp;css</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/hexo/">&nbsp;&nbsp;&nbsp;hexo</a>
+                                    <small>2</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/javascript/">&nbsp;&nbsp;&nbsp;javascript</a>
+                                    <small>2</small>
+                                </li>
+                                
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    <li class="mp-pjax"><a class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a></li>
+                    <li><a class="fa fa-github" href="#">&nbsp;&nbsp;&nbsp;Github</a></li>
+
+                </ul>
+
+            </div>
+        </nav>
+        <div id="pjax">
+            <div class="pjax-hidden" style="display: none">
+                
+                    <a  data-pjax href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
+                
+                    <a  data-pjax href="/2016/01/16/Octotree-Github-Browser-extensions/">安利下Octotree，好用的Github插件</a>
+                
+                    <a  data-pjax href="/2015/07/21/firefox下css三角锯齿问题/">firefox下css三角锯齿问题</a>
+                
+                    <a  data-pjax href="/2014/12/01/近日hexo无法deploy解决方案/">近日hexo无法deploy解决方案</a>
+                
+                    <a  data-pjax href="/2014/11/09/JavaScript闭包笔记/">JavaScript闭包笔记</a>
+                
+                    <a  data-pjax href="/2014/10/23/typeof和instanceof笔记/">typeof和instanceof笔记</a>
+                
+                    <a  data-pjax href="/2014/10/19/hexo学习笔记/">hexo学习笔记</a>
+                
+                
+                
+                    <a data-pjax href="/tags/NPM-ES6/">&nbsp;&nbsp;NPM ES6</a>
+                
+                    <a data-pjax href="/tags/TOOL/">&nbsp;&nbsp;TOOL</a>
+                
+                    <a data-pjax href="/tags/css/">&nbsp;&nbsp;css</a>
+                
+                    <a data-pjax href="/tags/hexo/">&nbsp;&nbsp;hexo</a>
+                
+                    <a data-pjax href="/tags/javascript/">&nbsp;&nbsp;javascript</a>
+                
+                <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
+            </div>
+            <nav class="nexus">
+                <li  style="border-left: 1px solid #c6d0da;">
+                    <a id="trigger" href="#"><i class="fa fa-bars"></i></a>
+                </li>
+                <li ><a id="nexus-back" data-pjax href="/">orifake&#39; Blog</a></li>
+                
+                <div id="nav-container">
+                    <div class="post-navbar" style="line-height: 63px;display:none">
+                        <li id="navbar-title"><a href="#">NPM with ES6</a></li>
+                        <li id="navbar-toc" style="border-left: none">
+                            <a style="padding-right: 15px">
+                                <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
+                            </a>
+                            <div class="hidden-box">
+                                <ul id="toc"></ul>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                
+            </nav>
+
+            <div class="scroller">
+            <div class="scroller-inner">
+
+
+<!-- -->
+<!--<body class="post-template">-->
+<!---->
+  
+
+<main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/NPM-ES6/' style='color:#D5D5D5'>NPM ES6</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">NPM with ES6</h1>
+
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2016-11-03T15:26:54.000Z"
+                              itemprop="datePublished">2016-11-03</time>
+                    </div>
+    </span>
+
+        <section class="post-content">
+            <p>NPM现在已经是JavaScript使用最为广泛的包管理工具，这已经无可争议了，很多公司也都搭建了自己的NPM源。并且随着ES6的普及，项目会逐渐向ES6迁移，在迁移的过程中为了兼容老的项目，意味着在发布前要先编译成ES5。本文简单介绍了通过Babel在发布前实现编译的方法。<br><a id="more"></a></p>
+<p>####在NPM发布前，完成自动编译ES6的有两个关键点<br>1.借助NPM prepublish钩子，在publish前执行script；<br>2.使用babel以及babel-cli进行ES6的编译。<br>下面是具体配置的细节：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 通过prepublish的钩子执行NPM script完成编译</div><div class="line">// 可以编译整个文件夹及output路径，具体请参照babel-cli的api</div><div class="line"> "scripts": &#123;</div><div class="line">    "compile": "babel --presets es2015 -d lib/ src/",</div><div class="line">    "prepublish": "npm run compile"</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>同时我也选择了babel的transform-runtime作为ES6的pollyfill，下面是NPM完整的依赖关系：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">"dependencies": &#123;</div><div class="line">  "babel-runtime": "6.9.0"</div><div class="line">&#125;,</div><div class="line">"devDependencies": &#123;</div><div class="line">  "babel-cli": "6.9.0",</div><div class="line">  "babel-plugin-transform-runtime": "6.9.0",</div><div class="line">  "babel-preset-es2015": "6.9.0"</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以及.babelrc<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;: [&quot;es2015&quot;],</div><div class="line">  &quot;plugins&quot;: [&quot;transform-runtime&quot;],</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>完成上面的工作后，在执行NPM publish时，就能通过console看到先完成了babel的编译以及具体的信息。</p>
+<hr>
+<p>到这里，自动编译的工作已经完成了。但是如果你想把这个库应用到使用CommonJS的老项目中，并且用了<code>export default</code>的方式，就会发现引入库时需要<code>require(&quot;your-module&quot;).default</code>，因为Babel 6默认不支持对CommonJs的转换。万能的NPM社区当然有相应的解决方案，也是官方推荐的<a href="https://www.npmjs.com/package/babel-plugin-add-module-exports" target="_blank" rel="external">babel-plugin-add-module-exports</a><br>在.babelrc中加入<code>&quot;plugins&quot;: [&quot;add-module-exports&quot;]</code>，然后观察编译后的文件就可以看到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Object.defineProperty(exports, &quot;__esModule&quot;, &#123;</div><div class="line">  value: true</div><div class="line">&#125;);</div><div class="line">exports.default = &apos;foo&apos;;</div><div class="line">module.exports = exports[&apos;default&apos;];</div></pre></td></tr></table></figure></p>
+<p>这样在require时只需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require(&apos;./bundle.js&apos;) // foo</div></pre></td></tr></table></figure></p>
+<p>##Reference:<br>1.<a href="http://jamesknelson.com/writing-npm-packages-with-es6-using-the-babel-6-cli/" target="_blank" rel="external">Writing NPM packages with ES6 using the Babel 6 CLI</a><br>2.<a href="https://docs.npmjs.com/misc/scripts" target="_blank" rel="external">npm-scripts</a><br>3.<a href="http://babeljs.io/docs/plugins/transform-es2015-modules-commonjs/" target="_blank" rel="external">ES2015 modules to CommonJS transform</a><br>4.<a href="https://www.npmjs.com/package/babel-plugin-add-module-exports" target="_blank" rel="external">babel-plugin-add-module-exports</a><br>5.<a href="http://babeljs.io/docs/plugins/transform-runtime/" target="_blank" rel="external">babel-plugin-transform-runtime</a></p>
+
+        </section>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
+            
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
+            
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/2016/01/16/Octotree-Github-Browser-extensions/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
+        </section>
+
+
+    </article>
+</main>
+
+
+  
+<footer class="site-footer">
+    
+    <div class="inner">
+        <section class="copyright"><a href="/"></a> &copy; orifake' Blog 2014</section>
+        <section class="poweredby">Published with <a target="_blank" href="http://hexo.io/">Hexo   </a> and Theme by <a target="_blank" href="https://github.com/yuche/hexo-theme-kael">Kael</a></section>
+    </div>
+</footer>
+</div>
+</div><!-- /scroller -->
+
+</div><!-- /pusher -->
+</div><!-- /container -->
+</div>
+
+<!-- Easter eggs -->
+
+<div class="egg animated">
+    <a id="close-button" href="#">X</a>
+    <div class="block">
+        <div class="loading">
+            <span class="ball1"></span>
+            <span class="ball2"></span>
+        </div>
+    </div>
+</div>
+  
+<script src="//cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "/js/jquery.min.js";
+        document.body.appendChild(script);
+    }
+</script>
+<script type="text/javascript" src="/js/lib.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+
+
+
+
+</body>
+</html>
