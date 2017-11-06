@@ -229,18 +229,36 @@
     </span>
 
         <section class="post-content">
-            <p>最近重读《JavaScript设计模式与开发实践》，越发觉得这本是我少有的已经阅读过过的前端相关书籍中，比同题材“动物书”更为出色的。书中整理了16种针对JS的设计模式，配合的代码实例也非常贴合JS语言与多范式的特性。在追求更优雅代码的过程中，灵活得应用这些设计模式是必不可少的。</p>
-<a id="more"></a>
-<p>##什么是设计模式？<br>引用本书前言的一句话：</p>
+            <p>最近重读《JavaScript设计模式与开发实践》，越发觉得是少有的已经阅读过的前端书籍中，比同题材“动物书”更为出色的。书中整理了16种针对JS的设计模式，配合的代码实例也非常贴合JS语言与多范式的特性。在追求更优雅代码的过程中，灵活得应用这些设计模式是必不可少的，希望通过文章对这些设计模式再加以总结，并且加深对其的理解。</p>
+<h2 id="什么是设计模式？"><a href="#什么是设计模式？" class="headerlink" title="什么是设计模式？"></a>什么是设计模式？</h2><p>引用本书前言的一句话：</p>
 <blockquote>
 <p>设计模式的定义是：在面向对象软件设计过程中针对特定问题的简洁而优雅的解决方案。</p>
 </blockquote>
 <p>前言中有一句我非常赞同，给“模式”取名的意义非常重要。实际上我们在程序设计的过程中已经不知不觉使用过这些“设计模式”，而把这些“模式”进一步挑选出来并赋予好记又好听的名字，使得我们在面对相似问题的时候能够快速得找到解决问题并且是优雅的方法。</p>
-<p>##设计模式的试用性</p>
-<blockquote>
+<h2 id="设计模式的试用性"><a href="#设计模式的试用性" class="headerlink" title="设计模式的试用性"></a>设计模式的试用性</h2><blockquote>
 <p>当我们有了一把锤子，看什么都是钉子。</p>
 </blockquote>
-<p>当我们学习了新的知识点后会恨不得应动到所有的场景中。</p>
+<p>如书中所说，当我们学习了新的知识点后会恨不得应动到所有的场景中。在我们尝试引入这些设计模式到代码中的时候，应该先想一想是否有必要这么做，会产生什么额外的负担。“没有银弹”，也是我认为编写代码的魅力之一。</p>
+<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><blockquote>
+<p>保证一个类只有一个实例，并提供一个访问它的全局访问点。</p>
+</blockquote>
+<p>非常常用的设计模式，比如实现唯一登录浮窗，需要注意的是为了性能需要，最好在需要实例的时候才创建，通过闭包中的变量保存实例并判断是否已实例化。</p>
+<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><blockquote>
+<p>定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。</p>
+</blockquote>
+<p>通常这么做的目的是分离算法的使用与实现，从而避免多重条件选择。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">//书中的例子</div><div class="line">var strategies = &#123;</div><div class="line">  &quot;s&quot;: function(salary) &#123;</div><div class="line">    return salary*4</div><div class="line">  &#125;</div><div class="line">  &quot;A&quot;: function(salary) &#123;</div><div class="line">  	return salary*3</div><div class="line">  &#125;</div><div class="line">  ......</div><div class="line">&#125;</div><div class="line">var calculate = function(level, salary) &#123;</div><div class="line">  return strategies[level](salary)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>书中归类了两种常用的代理</p>
+<ol>
+<li><p>保护代理：过滤操作</p>
+</li>
+<li><p>虚拟代理：延迟操作</p>
+</li>
+</ol>
+<p>代理对象和本体对象需要保持一致的API</p>
+<h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><blockquote>
+<p>顺序访问一个集合对象中的各个元素</p>
+</blockquote>
+<p>需要注意可以通过break中止迭代器<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// 书中的例子，通过遍历得到合适的上传文件的方法</div><div class="line">var getActiveUploadObj = function() &#123;</div><div class="line">  try &#123;</div><div class="line">    return new ActiveXObject(&quot;TXFTNActiveX.FTNUpload&quot;)</div><div class="line">  &#125; catch(e) &#123;</div><div class="line">    return false</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var getFlashUploadObj = function() &#123;</div><div class="line">  if (supportFlash()) &#123;</div><div class="line">    var str = &apos;&lt;object type = &quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;&apos;</div><div class="line">    return $(str).appendTo($(&apos;body&apos;))</div><div class="line">  &#125;</div><div class="line">  return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var getFormUploadObj =function() &#123;</div><div class="line">  var str = &apos;&lt;input name=&quot;file&quot; type=&quot;file&quot; class=&quot;ui-file&quot;/&gt;&apos;</div><div class="line">  return $(str).appendTo($(&apos;body&apos;))</div><div class="line">&#125;</div><div class="line"></div><div class="line">var iteratorUploadObj = function() &#123;</div><div class="line">  for (var i = 0,fn; fn = arguments[i++]; ) &#123;</div><div class="line">    var uploadObj = fn()</div><div class="line">    if (uploadObj !== false) &#123;</div><div class="line">      return uploadObj</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">// 避免了多重判断，方便扩展</div></pre></td></tr></table></figure></p>
 
         </section>
         <hr/>
