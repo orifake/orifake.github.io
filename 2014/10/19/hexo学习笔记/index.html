@@ -12,7 +12,6 @@
   <link rel="stylesheet" type="text/css" href="/css/component.css" />
   <link rel="stylesheet" type="text/css" href="/css/screen.css" />
   <meta name="generator" content="orifake' Blog">
-  <script src="http://static.duoshuo.com/embed.js"></script>
   
   
   
@@ -41,6 +40,10 @@
                             </form>
                             <ul>
                                 <div class="mp-scroll">
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2017/10/15/Design-Patterns-In-JS/">JavaScript中的设计模式</a>
+                                </li>
                                 
                                 <li class="search-archive-li mp-pjax">
                                     <a href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
@@ -106,13 +109,8 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/NPM-ES6/">&nbsp;&nbsp;&nbsp;NPM ES6</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/TOOL/">&nbsp;&nbsp;&nbsp;TOOL</a>
-                                    <small>1</small>
+                                    <a href="/tags/JavaScript/">&nbsp;&nbsp;&nbsp;JavaScript</a>
+                                    <small>3</small>
                                 </li>
                                 
                                 <li class="search-tag-li mp-pjax">
@@ -126,8 +124,13 @@
                                 </li>
                                 
                                 <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/javascript/">&nbsp;&nbsp;&nbsp;javascript</a>
-                                    <small>2</small>
+                                    <a href="/tags/npm/">&nbsp;&nbsp;&nbsp;npm</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/tool/">&nbsp;&nbsp;&nbsp;tool</a>
+                                    <small>1</small>
                                 </li>
                                 
                                 </div>
@@ -145,6 +148,8 @@
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
                 
+                    <a  data-pjax href="/2017/10/15/Design-Patterns-In-JS/">JavaScript中的设计模式</a>
+                
                     <a  data-pjax href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
                 
                     <a  data-pjax href="/2016/01/16/Octotree-Github-Browser-extensions/">安利下Octotree，好用的Github插件</a>
@@ -161,15 +166,15 @@
                 
                 
                 
-                    <a data-pjax href="/tags/NPM-ES6/">&nbsp;&nbsp;NPM ES6</a>
-                
-                    <a data-pjax href="/tags/TOOL/">&nbsp;&nbsp;TOOL</a>
+                    <a data-pjax href="/tags/JavaScript/">&nbsp;&nbsp;JavaScript</a>
                 
                     <a data-pjax href="/tags/css/">&nbsp;&nbsp;css</a>
                 
                     <a data-pjax href="/tags/hexo/">&nbsp;&nbsp;hexo</a>
                 
-                    <a data-pjax href="/tags/javascript/">&nbsp;&nbsp;javascript</a>
+                    <a data-pjax href="/tags/npm/">&nbsp;&nbsp;npm</a>
+                
+                    <a data-pjax href="/tags/tool/">&nbsp;&nbsp;tool</a>
                 
                 <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
             </div>
@@ -224,22 +229,21 @@
     </span>
 
         <section class="post-content">
-            <h2 id="什么是hexo"><a href="#什么是hexo" class="headerlink" title="什么是hexo"></a>什么是hexo</h2><hr>
-<p><a href="http://hexo.io/" target="_blank" rel="external">hexo</a>是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。作者是来自台湾的<a href="https://github.com/tommy351/hexo" target="_blank" rel="external">@tommy351</a>。引用<a href="https://github.com/tommy351/hexo" target="_blank" rel="external">@tommy351</a>的话:</p>
+            <h2 id="什么是hexo"><a href="#什么是hexo" class="headerlink" title="什么是hexo"></a>什么是hexo</h2><p><a href="http://hexo.io/" target="_blank" rel="external">hexo</a>是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。作者是来自台湾的<a href="https://github.com/tommy351/hexo" target="_blank" rel="external">@tommy351</a>。引用<a href="https://github.com/tommy351/hexo" target="_blank" rel="external">@tommy351</a>的话:</p>
 <blockquote>
-<p>快速、简单且功能强大的 Node.js 博客框架。<br>A fast, simple &amp; powerful blog framework, powered by Node.js.<br><a id="more"></a></p>
-<h2 id="怎么搭建hexo"><a href="#怎么搭建hexo" class="headerlink" title="怎么搭建hexo"></a>怎么搭建hexo</h2><hr>
-<p>以下均基于MacOS X：<br><strong>1.安装Git</strong><br>  1）我用的是xcode，输入下列命令查看当前git版本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git --version</div></pre></td></tr></table></figure></p>
+<p>快速、简单且功能强大的 Node.js 博客框架。<br>A fast, simple &amp; powerful blog framework, powered by Node.js</p>
 </blockquote>
-<p>  2）注册github<br>  3）生成SSH KEY<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure></p>
-<p>  4）将SSH KEY添加到github<br>  登录到GitHub页面，Account Settings-&gt;SSH Public Keys-&gt;Add another key<br>  将生成的key(id_rsa.pub文件）内容copy到输入框中，save。<br>  5）测试链接<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh git@github.com</div></pre></td></tr></table></figure></p>
-<p>  6）设置个人信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"orifake"</span></div><div class="line">$ git config --global user.email timyjykaka@gmail.com</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="怎么搭建hexo"><a href="#怎么搭建hexo" class="headerlink" title="怎么搭建hexo"></a>怎么搭建hexo</h2><p>以下均基于MacOS X：<br><strong>1.安装Git</strong><br>  1）我用的是xcode，输入下列命令查看当前git版本。<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ git --version</div></pre></td></tr></table></figure></p>
+<p>  2）注册github<br>  3）生成SSH KEY<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure></p>
+<p>  4）将SSH KEY添加到github<br>  登录到GitHub页面，Account Settings-&gt;SSH Public Keys-&gt;Add another key<br>  将生成的key(id_rsa.pub文件）内容copy到输入框中，save。<br>  5）测试链接<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ ssh git@github.com</div></pre></td></tr></table></figure></p>
+<p>  6）设置个人信息<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"orifake"</span></div><div class="line">$ git config --global user.email timyjykaka@gmail.com</div></pre></td></tr></table></figure></p>
 <p>  附录：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git教程</a></p>
-<p><strong>2.安装Node.js</strong><br>  1）安装xcode、git；<br>  2）使用git将node源码拉到本地 git://github.com/ry/node.git<br>  3）./configure<br>  4）make<br>  5）make install<br>  安装成功后，将官网上的helloworld程序copy一份保存为helloworld.js到node安装目录下，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var http = require(&apos;http&apos;);</div><div class="line">http.createServer(function(req, res)&#123;</div><div class="line">res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/plain&apos;&#125;);</div><div class="line">res.end(&apos;Hello World\n&apos;);</div><div class="line">&#125;).listen(8808, &apos;127.0.0.1&apos;);</div><div class="line">console.log(&apos;Server running at http://127.0.0.1:8808&apos;);</div></pre></td></tr></table></figure></p>
-<p>  运行node helloworld.js，就能在命令窗口中(控制台)下看到”Server running at <a href="http://127.0.0.1:8808" target="_blank" rel="external">http://127.0.0.1:8808</a>“ 的信息，在浏览器中输入localhost:8808，得到结果。<br><strong>3.安装hexo</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo // 安装hexo</div><div class="line">hexo init           // 选择目录，创建hexo文件夹</div><div class="line">npm install         // 安装依赖包</div></pre></td></tr></table></figure></p>
-<p>  ＊本地查看＊<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
+<p><strong>2.安装Node.js</strong><br>  1）安装xcode、git；<br>  2）使用git将node源码拉到本地 git://github.com/ry/node.git<br>  3）./configure<br>  4）make<br>  5）make install<br>  安装成功后，将官网上的helloworld程序copy一份保存为helloworld.js到node安装目录下，<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var http = require(&apos;http&apos;);</div><div class="line">http.createServer(function(req, res)&#123;</div><div class="line">res.writeHead(200, &#123;&apos;Content-Type&apos;: &apos;text/plain&apos;&#125;);</div><div class="line">res.end(&apos;Hello World\n&apos;);</div><div class="line">&#125;).listen(8808, &apos;127.0.0.1&apos;);</div><div class="line">console.log(&apos;Server running at http://127.0.0.1:8808&apos;);</div></pre></td></tr></table></figure></p>
+<p>  运行node helloworld.js，就能在命令窗口中(控制台)下看到”Server running at <a href="http://127.0.0.1:8808" target="_blank" rel="external">http://127.0.0.1:8808</a>“ 的信息，在浏览器中输入localhost:8808，得到结果。<br><strong>3.安装hexo</strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install -g hexo // 安装hexo</div><div class="line">hexo init           // 选择目录，创建hexo文件夹</div><div class="line">npm install         // 安装依赖包</div></pre></td></tr></table></figure></p>
+<p>  ＊本地查看＊<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo server</div></pre></td></tr></table></figure></p>
 <p>  ＊创建repository＊<br>  在自己github主页右上角，创建一个新的repository。比如账号是orifake，那么应该创建的repository的名字应该是orifake.github.io。</p>
-<p>  ＊部署＊<br>  编辑hexo根目录下的_config.yml。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">type: github</div><div class="line">repository: https://github.com/orifake/orifake.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure></p>
+<p>  ＊部署＊<br>  编辑hexo根目录下的_config.yml。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">deploy:</div><div class="line">type: github</div><div class="line">repository: https://github.com/orifake/orifake.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure></p>
 <p><strong>4.更新“_config.yml”</strong></p>
 <pre><code># Hexo Configuration
 ## Docs: http://zespia.tw/hexo/docs/configure.html
@@ -323,7 +327,7 @@ deploy:
   type: github
   repository: https://github.com/orifake/orifake.github.io.git
   branch: master
-</code></pre><p><strong>5.更改主题</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> &lt;repository&gt; themes/&lt;theme-name&gt;</div></pre></td></tr></table></figure></p>
+</code></pre><p><strong>5.更改主题</strong><br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> &lt;repository&gt; themes/&lt;theme-name&gt;</div></pre></td></tr></table></figure></p>
 <p>  主题安装在theme目录下，修改_config.yml启用修改后的主题。<br>  我使用的是<a href="https://github.com/coneycode/coney-hexo-theme" target="_blank" rel="external">coney-hexo-theme</a></p>
 <p><strong>参考文献</strong><br>1.<a href="http://zipperary.com/2013/05/28/hexo-guide-2/" target="_blank" rel="external">hexo系列教程：（二）搭建hexo博客 – by zipperary</a><br>2.<a href="http://zipperary.com/2013/05/28/hexo-guide-2/" target="_blank" rel="external">hexo你的博客 – by ibruce</a><br>3.<a href="http://yangjian.me/workspace/building-blog-with-hexo/" target="_blank" rel="external">使用hexo搭建博客 – by yangjian</a><br>4.<a href="https://github.com/coneycode/coney-hexo-theme" target="_blank" rel="external">coney-hexo-theme</a></p>
 

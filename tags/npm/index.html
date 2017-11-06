@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>typeof和instanceof笔记 | orifake&#39; Blog</title>
+  <title>Tag: npm | orifake&#39; Blog</title>
   <meta name="description" content="Standing on Shoulders of Giants" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -186,7 +186,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">typeof和instanceof笔记</a></li>
+                        <li id="navbar-title"><a href="#"></a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -205,60 +205,47 @@
 
 
 <!-- -->
-<!--<body class="post-template">-->
+<!--<body class="home-template">-->
 <!---->
   
-
 <main class="content" role="main">
-    <article class="post" >
-    <span class="post-meta">
-                  <div class="tag-tile">
-                      
-                      
-                      <a data-pjax href='/tags/JavaScript/' style='color:#D5D5D5'>JavaScript</a>
-                      
-                      
-                  </div>
-                <h1 class="post-title" style="margin: 14px 0;color:#50585D">typeof和instanceof笔记</h1>
 
-                    <div class="post-meta">
-                        Post on<span class="fa fa-clock-o"></span>
-                        <time datetime="2014-10-23T04:33:53.000Z"
-                              itemprop="datePublished">2014-10-23</time>
-                    </div>
-    </span>
+    
+    <article class="post">
 
-        <section class="post-content">
-            <p>学习《JavaScript高级程序设计(第3版)》，对typeof和instanceof方法有许多疑惑，搜索看到这篇文章觉得解析的很好，修改了些小错误，留作学习笔记。<br>原文链接：<a href="http://blog.csdn.net/myhahaxiao/article/details/6740542" target="_blank" rel="external">《javascript typeof 和 instanceof 的区别和联系》</a><br><a id="more"></a></p>
-<p>##typeof操作符</p>
-<hr>
-<p>###typeof是什么？<br>  typeof是用于检测给定变量数据类型的操作符，用来确定变量是字符串、布尔值、数值、undefined、object或者是funciton；</p>
-<p>###typeof示例代码<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="string">"orifake"</span>;  </div><div class="line"><span class="keyword">var</span> b=<span class="literal">true</span>;  </div><div class="line"><span class="keyword">var</span> c=<span class="number">10</span>;  </div><div class="line"><span class="keyword">var</span> d;  </div><div class="line"><span class="keyword">var</span> e=<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">&#125;;  </div><div class="line"><span class="keyword">var</span> f=<span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"><span class="keyword">var</span> g= <span class="regexp">/at/g</span>;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"a is "</span>+<span class="keyword">typeof</span>(a));</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"b is "</span>+<span class="keyword">typeof</span>(b));</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"c is "</span>+<span class="keyword">typeof</span>(c));</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"d is "</span>+<span class="keyword">typeof</span>(d));</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"e is "</span>+<span class="keyword">typeof</span>(e));</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"f is "</span>+<span class="keyword">typeof</span>(f));</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"g is "</span>+<span class="keyword">typeof</span>(g));</div></pre></td></tr></table></figure></p>
-<p>##instanceof操作符</p>
-<hr>
-<p>###instanceof是什么？<br>  判断其左边对象是否为其右边类的实例，返回boolean类型的数据。可以用来判断继承中的子类的实例是否为父类的实现。</p>
-<p>###instanceof示例代码？<br><figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> array=<span class="keyword">new</span> <span class="built_in">Array</span>();  </div><div class="line"><span class="keyword">var</span> object=<span class="keyword">new</span> <span class="built_in">Object</span>();  </div><div class="line"><span class="keyword">var</span> regexp=<span class="keyword">new</span> <span class="built_in">RegExp</span>();  </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;&#125;;  </div><div class="line"><span class="keyword">var</span> func1=<span class="keyword">new</span> func();  </div><div class="line"><span class="built_in">console</span>.log(array <span class="keyword">instanceof</span> <span class="built_in">Array</span>);  <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(object <span class="keyword">instanceof</span> <span class="built_in">Object</span>);  <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(regexp <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>);  <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(func1 <span class="keyword">instanceof</span> func);  <span class="comment">//true</span></div></pre></td></tr></table></figure></p>
-<p>###typeof和instanceof的联系<br>  typeof和instanceof的目的都是检测变量的类型,两个的区别在于typeof一般是检测的是基本数据类型,instanceof主要检测的是引用类型!</p>
+        <header class="post-header">
+            <div class="tag-tile">
+                
+                
+                <a data-pjax href='/tags/npm/'>npm</a>
+                
+                
+                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
+            </div>
+            <h1 class="post-title"><a data-pjax href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
+            </h1>
 
+            <div class="post-meta">
+                Post on<span class="fa fa-clock-o"></span>
+                <time datetime="2016-11-03T15:26:54.000Z"
+                      itemprop="datePublished">2016-11-03</time>
+            </div>
+        </header>
+        <section class="post-excerpt">
+            <p>
+                
+                <p>NPM现在已经是JavaScript使用最为广泛的包管理工具，这已经无可争议了，很多公司也都搭建了自己的NPM源。并且随着ES6的普及，项目会逐渐向ES6迁移，在迁移的过程中为了兼容老的项目，意味着在发布前要先编译成ES5。本文简单介绍了通过Babel在发布前实现编译的方法。<br>
+                
+            </p>
+            
         </section>
-        <hr/>
-        <nav class="pagination" style="width:auto" role="pagination">
-            
-            <a data-pjax class="newer-posts" href="/2014/11/09/JavaScript闭包笔记/">← Prev Post</a>
-            
-            <a class="share-button" data-original-title title>Share this Post</a>
-            
-            <a data-pjax class="older-posts" href="/2014/10/19/hexo学习笔记/">Next Post →</a>
-            
-        </nav>
-        <br/>
-        <br/>
-        <section id="comment">
-            <div id="comment-box"></div>
-        </section>
-
-
     </article>
+    
+    <nav class="pagination" role="pagination">
+        
+        <span class="page-number">Page 1 of 1</span>
+        
+    </nav>
 </main>
 
 

@@ -12,7 +12,6 @@
   <link rel="stylesheet" type="text/css" href="/css/component.css" />
   <link rel="stylesheet" type="text/css" href="/css/screen.css" />
   <meta name="generator" content="orifake' Blog">
-  <script src="http://static.duoshuo.com/embed.js"></script>
   
   
   
@@ -41,6 +40,10 @@
                             </form>
                             <ul>
                                 <div class="mp-scroll">
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2017/10/15/Design-Patterns-In-JS/">JavaScript中的设计模式</a>
+                                </li>
                                 
                                 <li class="search-archive-li mp-pjax">
                                     <a href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
@@ -106,13 +109,8 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/NPM-ES6/">&nbsp;&nbsp;&nbsp;NPM ES6</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/TOOL/">&nbsp;&nbsp;&nbsp;TOOL</a>
-                                    <small>1</small>
+                                    <a href="/tags/JavaScript/">&nbsp;&nbsp;&nbsp;JavaScript</a>
+                                    <small>3</small>
                                 </li>
                                 
                                 <li class="search-tag-li mp-pjax">
@@ -126,8 +124,13 @@
                                 </li>
                                 
                                 <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/javascript/">&nbsp;&nbsp;&nbsp;javascript</a>
-                                    <small>2</small>
+                                    <a href="/tags/npm/">&nbsp;&nbsp;&nbsp;npm</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/tool/">&nbsp;&nbsp;&nbsp;tool</a>
+                                    <small>1</small>
                                 </li>
                                 
                                 </div>
@@ -145,6 +148,8 @@
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
                 
+                    <a  data-pjax href="/2017/10/15/Design-Patterns-In-JS/">JavaScript中的设计模式</a>
+                
                     <a  data-pjax href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
                 
                     <a  data-pjax href="/2016/01/16/Octotree-Github-Browser-extensions/">安利下Octotree，好用的Github插件</a>
@@ -161,15 +166,15 @@
                 
                 
                 
-                    <a data-pjax href="/tags/NPM-ES6/">&nbsp;&nbsp;NPM ES6</a>
-                
-                    <a data-pjax href="/tags/TOOL/">&nbsp;&nbsp;TOOL</a>
+                    <a data-pjax href="/tags/JavaScript/">&nbsp;&nbsp;JavaScript</a>
                 
                     <a data-pjax href="/tags/css/">&nbsp;&nbsp;css</a>
                 
                     <a data-pjax href="/tags/hexo/">&nbsp;&nbsp;hexo</a>
                 
-                    <a data-pjax href="/tags/javascript/">&nbsp;&nbsp;javascript</a>
+                    <a data-pjax href="/tags/npm/">&nbsp;&nbsp;npm</a>
+                
+                    <a data-pjax href="/tags/tool/">&nbsp;&nbsp;tool</a>
                 
                 <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
             </div>
@@ -224,8 +229,8 @@
     </span>
 
         <section class="post-content">
-            <p>用css实现三角形的方法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.triangle&#123;</div><div class="line">    width: 0;</div><div class="line">    height: 0;</div><div class="line">    border-left: 10px solid transparent;</div><div class="line">    border-right: 10px solid transparent;</div><div class="line">    border-top: 5px solid #000;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>但是在firefox中上述方法实现的三角形会出现锯齿，在stackoverflow上找到了用scale属性的解决方案：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-moz-transform: scale(.9999);</div></pre></td></tr></table></figure></p>
+            <p>用css实现三角形的方法如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">.triangle&#123;</div><div class="line">    width: 0;</div><div class="line">    height: 0;</div><div class="line">    border-left: 10px solid transparent;</div><div class="line">    border-right: 10px solid transparent;</div><div class="line">    border-top: 5px solid #000;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但是在firefox中上述方法实现的三角形会出现锯齿，在stackoverflow上找到了用scale属性的解决方案：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">-moz-transform: scale(.9999);</div></pre></td></tr></table></figure></p>
 
         </section>
         <hr/>

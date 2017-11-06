@@ -12,7 +12,6 @@
   <link rel="stylesheet" type="text/css" href="/css/component.css" />
   <link rel="stylesheet" type="text/css" href="/css/screen.css" />
   <meta name="generator" content="orifake' Blog">
-  <script src="http://static.duoshuo.com/embed.js"></script>
   
   
   
@@ -41,6 +40,10 @@
                             </form>
                             <ul>
                                 <div class="mp-scroll">
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2017/10/15/Design-Patterns-In-JS/">JavaScript中的设计模式</a>
+                                </li>
                                 
                                 <li class="search-archive-li mp-pjax">
                                     <a href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
@@ -106,13 +109,8 @@
                                 <div class="mp-scroll">
                                 
                                 <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/NPM-ES6/">&nbsp;&nbsp;&nbsp;NPM ES6</a>
-                                    <small>1</small>
-                                </li>
-                                
-                                <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/TOOL/">&nbsp;&nbsp;&nbsp;TOOL</a>
-                                    <small>1</small>
+                                    <a href="/tags/JavaScript/">&nbsp;&nbsp;&nbsp;JavaScript</a>
+                                    <small>3</small>
                                 </li>
                                 
                                 <li class="search-tag-li mp-pjax">
@@ -126,8 +124,13 @@
                                 </li>
                                 
                                 <li class="search-tag-li mp-pjax">
-                                    <a href="/tags/javascript/">&nbsp;&nbsp;&nbsp;javascript</a>
-                                    <small>2</small>
+                                    <a href="/tags/npm/">&nbsp;&nbsp;&nbsp;npm</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/tool/">&nbsp;&nbsp;&nbsp;tool</a>
+                                    <small>1</small>
                                 </li>
                                 
                                 </div>
@@ -145,6 +148,8 @@
         <div id="pjax">
             <div class="pjax-hidden" style="display: none">
                 
+                    <a  data-pjax href="/2017/10/15/Design-Patterns-In-JS/">JavaScript中的设计模式</a>
+                
                     <a  data-pjax href="/2016/11/03/NPM-with-ES6/">NPM with ES6</a>
                 
                     <a  data-pjax href="/2016/01/16/Octotree-Github-Browser-extensions/">安利下Octotree，好用的Github插件</a>
@@ -161,15 +166,15 @@
                 
                 
                 
-                    <a data-pjax href="/tags/NPM-ES6/">&nbsp;&nbsp;NPM ES6</a>
-                
-                    <a data-pjax href="/tags/TOOL/">&nbsp;&nbsp;TOOL</a>
+                    <a data-pjax href="/tags/JavaScript/">&nbsp;&nbsp;JavaScript</a>
                 
                     <a data-pjax href="/tags/css/">&nbsp;&nbsp;css</a>
                 
                     <a data-pjax href="/tags/hexo/">&nbsp;&nbsp;hexo</a>
                 
-                    <a data-pjax href="/tags/javascript/">&nbsp;&nbsp;javascript</a>
+                    <a data-pjax href="/tags/npm/">&nbsp;&nbsp;npm</a>
+                
+                    <a data-pjax href="/tags/tool/">&nbsp;&nbsp;tool</a>
                 
                 <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
             </div>
@@ -210,7 +215,7 @@
                   <div class="tag-tile">
                       
                       
-                      <a data-pjax href='/tags/javascript/' style='color:#D5D5D5'>javascript</a>
+                      <a data-pjax href='/tags/JavaScript/' style='color:#D5D5D5'>JavaScript</a>
                       
                       
                   </div>
@@ -227,7 +232,7 @@
             <p>在学习JavaScript的路上依然走的很慢,看完了高级程序设计后对其中很多概念不甚理解.逛知乎时看到很多大牛的精彩回答，在这继续转载一篇关于闭包的文章，也希望自己能早些去帮助别人解惑。</p>
 <p>原文:<a href="http://www.zhihu.com/question/19554716/answer/12276503" target="_blank" rel="external">JavaScript 里的闭包是什么？应用场景有哪些？</a><br>@作者:<a href="http://www.zhihu.com/people/tlxue" target="_blank" rel="external">薛天禄</a><br><a id="more"></a></p>
 <hr>
-<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">var foo = ( function() &#123;</div><div class="line">    var secret = &apos;secret&apos;;</div><div class="line">    // “闭包”内的函数可以访问 secret 变量，而 secret 变量对于外部却是隐藏的</div><div class="line">    return &#123;</div><div class="line">        get_secret: function () &#123;</div><div class="line">            // 通过定义的接口来访问 secret</div><div class="line">            return secret;</div><div class="line">        &#125;,</div><div class="line">        new_secret: function ( new_secret ) &#123;</div><div class="line">            // 通过定义的接口来修改 secret</div><div class="line">            secret = new_secret;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125; () );</div><div class="line"></div><div class="line">foo.get_secret (); // 得到 &apos;secret&apos;</div><div class="line">foo.secret; // Type error，访问不能</div><div class="line">foo.new_secret (&apos;a new secret&apos;); // 通过函数接口，我们访问并修改了 secret 变量</div><div class="line">foo.get_secret (); // 得到 &apos;a new secret&apos;</div></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var foo = ( function() &#123;</div><div class="line">    var secret = &apos;secret&apos;;</div><div class="line">    // “闭包”内的函数可以访问 secret 变量，而 secret 变量对于外部却是隐藏的</div><div class="line">    return &#123;</div><div class="line">        get_secret: function () &#123;</div><div class="line">            // 通过定义的接口来访问 secret</div><div class="line">            return secret;</div><div class="line">        &#125;,</div><div class="line">        new_secret: function ( new_secret ) &#123;</div><div class="line">            // 通过定义的接口来修改 secret</div><div class="line">            secret = new_secret;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125; () );</div><div class="line"></div><div class="line">foo.get_secret (); // 得到 &apos;secret&apos;</div><div class="line">foo.secret; // Type error，访问不能</div><div class="line">foo.new_secret (&apos;a new secret&apos;); // 通过函数接口，我们访问并修改了 secret 变量</div><div class="line">foo.get_secret (); // 得到 &apos;a new secret&apos;</div></pre></td></tr></table></figure></p>
 <p>引用 Douglas Crockford [1] :</p>
 <blockquote>
 <p>之所以可能通过这种方式在 JavaScript 种实现公有，私有，特权变量正是因为闭包，闭包是指在 JavaScript 中，内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。</p>
