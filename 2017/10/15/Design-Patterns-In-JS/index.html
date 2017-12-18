@@ -249,16 +249,48 @@
 <p>通常这么做的目的是分离算法的使用与实现，从而避免多重条件选择。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">//书中的例子</div><div class="line">var strategies = &#123;</div><div class="line">  &quot;s&quot;: function(salary) &#123;</div><div class="line">    return salary*4</div><div class="line">  &#125;</div><div class="line">  &quot;A&quot;: function(salary) &#123;</div><div class="line">  	return salary*3</div><div class="line">  &#125;</div><div class="line">  ......</div><div class="line">&#125;</div><div class="line">var calculate = function(level, salary) &#123;</div><div class="line">  return strategies[level](salary)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>书中归类了两种常用的代理</p>
 <ol>
-<li><p>保护代理：过滤操作</p>
-</li>
-<li><p>虚拟代理：延迟操作</p>
-</li>
+<li>保护代理：过滤操作</li>
+<li>虚拟代理：延迟操作</li>
 </ol>
 <p>代理对象和本体对象需要保持一致的API</p>
 <h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><blockquote>
 <p>顺序访问一个集合对象中的各个元素</p>
 </blockquote>
 <p>需要注意可以通过break中止迭代器<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// 书中的例子，通过遍历得到合适的上传文件的方法</div><div class="line">var getActiveUploadObj = function() &#123;</div><div class="line">  try &#123;</div><div class="line">    return new ActiveXObject(&quot;TXFTNActiveX.FTNUpload&quot;)</div><div class="line">  &#125; catch(e) &#123;</div><div class="line">    return false</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var getFlashUploadObj = function() &#123;</div><div class="line">  if (supportFlash()) &#123;</div><div class="line">    var str = &apos;&lt;object type = &quot;application/x-shockwave-flash&quot;&gt;&lt;/object&gt;&apos;</div><div class="line">    return $(str).appendTo($(&apos;body&apos;))</div><div class="line">  &#125;</div><div class="line">  return false;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var getFormUploadObj =function() &#123;</div><div class="line">  var str = &apos;&lt;input name=&quot;file&quot; type=&quot;file&quot; class=&quot;ui-file&quot;/&gt;&apos;</div><div class="line">  return $(str).appendTo($(&apos;body&apos;))</div><div class="line">&#125;</div><div class="line"></div><div class="line">var iteratorUploadObj = function() &#123;</div><div class="line">  for (var i = 0,fn; fn = arguments[i++]; ) &#123;</div><div class="line">    var uploadObj = fn()</div><div class="line">    if (uploadObj !== false) &#123;</div><div class="line">      return uploadObj</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">// 避免了多重判断，方便扩展</div></pre></td></tr></table></figure></p>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2><p>需要注意通过命名空间解决命名冲突<br>优点</p>
+<ol>
+<li>时间解耦</li>
+<li>对象解耦</li>
+</ol>
+<p>缺点</p>
+<ol>
+<li>难于debug</li>
+</ol>
+<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p>消除请求发送者和请求接受者间的耦合</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var setCommand = function(button, func) &#123;</div><div class="line">  button.onclick = function()&#123;</div><div class="line">    func()</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h2><p>使用树表示对象的部分-整体结构</p>
+<p>值得注意的地方</p>
+<ol>
+<li>组合模式不是父子关系，而是聚合关系</li>
+<li>叶操作对象保持一致性</li>
+<li>双向映射关系</li>
+<li>用职责链模式提升树遍历的性能<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/*******************************Folder********************************/</div><div class="line">var Folder = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.files = [];</div><div class="line">&#125;</div><div class="line"></div><div class="line">Folder.prototype.add = function(file) &#123;</div><div class="line">  this.files.push(file);</div><div class="line">&#125;</div><div class="line"></div><div class="line">Folder.prototype.scan = function() &#123;</div><div class="line">  console.log(&apos;开始扫描文件夹：&apos; + this.name)</div><div class="line">  for(var i=0;,file,files=this.files;file=files[i++];)&#123;</div><div class="line">    file.scan();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*******************************File********************************/</div><div class="line">var File = function(name) &#123;</div><div class="line">  this.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">File.prototype.add = function(file) &#123;</div><div class="line">  throw new Error(&apos;文件下面不能再添加文件&apos;)</div><div class="line">&#125;</div><div class="line"> </div><div class="line">Folder.prototype.scan = function() &#123;</div><div class="line">  console.log(&apos;开始扫描文件：&apos; + this.name)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="模版方法模式"><a href="#模版方法模式" class="headerlink" title="模版方法模式"></a>模版方法模式</h2><p>抽象父类封装子类的算法框架，包括实现一些公共方法以及封装子类所有方法的顺序执行。子类通过继承这个抽象类，也继承了整个算法结构，并且可以选择重写父类的方法。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var Beverage = function() &#123;&#125;;</div><div class="line">Beverage.prototype.boidWater = function () &#123;</div><div class="line">  console.log(&apos;把水煮沸&apos;)</div><div class="line">&#125;;</div><div class="line">Beverage.prototype.brew = function() &#123;&#125; // 空方法，应该由子类重写</div><div class="line">Beverage.prototype.pourInCup = function() &#123;&#125; // 空方法，应该由子类重写</div><div class="line"></div><div class="line">var Coffee = function() &#123;&#125;;</div><div class="line">Coffee.prototype = new Beverage();</div><div class="line">Coffee.prototype.brew = function() &#123;</div><div class="line">  console.log(&apos;用沸水冲泡咖啡&apos;)</div><div class="line">&#125;</div><div class="line">Coffee.prototype.pourInCup = function() &#123;</div><div class="line">  console.log(&apos;把咖啡倒进杯子&apos;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h2><p>通过节省内存空间来优化性能<br>适用性</p>
+<ol>
+<li>一个程序中使用了大量的相似对象</li>
+<li>由于使用了大量对象，造成很大的内存开销</li>
+<li>对象的大多数状态都可以变为外部状态</li>
+<li>剥离出对象的外部状态后，可以用相对较少的共享对象取代大量对象</li>
+</ol>
+<h2 id="职责链模式"><a href="#职责链模式" class="headerlink" title="职责链模式"></a>职责链模式</h2><p>使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var order500 = function( orderTyoe, pay,stock ) &#123;</div><div class="line">  if( orderType === 1 &amp;&amp; pay === true) &#123;</div><div class="line">    console.log(&apos;500定金预购，得到100优惠券&apos;)</div><div class="line">  &#125; else &#123;</div><div class="line">    return &apos;nextSuccessor&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var order200 = function( orderTyoe, pay,stock ) &#123;</div><div class="line">  if( orderType === 2 &amp;&amp; pay === true) &#123;</div><div class="line">    console.log(&apos;200定金预购，得到50优惠券&apos;)</div><div class="line">  &#125; else &#123;</div><div class="line">    return &apos;nextSuccessor&apos;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var Chain = function(fn) &#123;</div><div class="line">  this.fn = fn;</div><div class="line">  this.successor = null;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Chain.prototype.setNextSuccessor = function(successor) &#123;</div><div class="line">  return this.successor = successor</div><div class="line">&#125;</div><div class="line"></div><div class="line">Chain.prototype.passRequest = function() &#123;</div><div class="line">  var ret = this.fn.apply(this.arguments);</div><div class="line">  if (ret = &apos;nextSuccessor&apos;) &#123;</div><div class="line">    return this.successor &amp;&amp; this.successor.passRequest.apply(this.successor, arguments);</div><div class="line">  &#125;</div><div class="line">  return ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>用AOP实现职责链<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Function.prototype.after = function(fn) &#123;</div><div class="line">  var self = this</div><div class="line">  return function () &#123;</div><div class="line">    var ret = self.apply(this,arguments)</div><div class="line">    if (ret === &apos;nextSuccessor&apos;) &#123;</div><div class="line">      return fn.apply(this,arguments)</div><div class="line">    &#125;</div><div class="line">    return ret</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var order = order500yuan.after(order200yuan).after(orderNormal);</div></pre></td></tr></table></figure></p>
+<h2 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h2><p>解除对相与对象之间的紧耦合</p>
+<h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><p>对对象动态加入行为</p>
+<h2 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h2><p>把事物的每种状态都封装成单独的类，跟此种状态有关的行为都被封装在这个类的内部</p>
+<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p>解决两个软件实体间的接口不兼容的问题</p>
 
         </section>
         <hr/>
